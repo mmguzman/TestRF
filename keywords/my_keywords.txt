@@ -1,0 +1,25 @@
+*** Settings ***
+Library         Selenium2Library
+
+*** keywords ***
+my suite teardown
+	LOG  	my suite teardown success
+
+my test setup
+	LOG  	before each test 
+
+Open Login Page
+	[Arguments] 	${url} 	${browser}
+	Open Browser 	${url}  ${browser}
+	#Title Should Be 	Gmail
+
+Title Should Start With
+	[Arguments] 	${expected}
+	${title} = 	Get Title
+	Should Start With 	${title} 	${expected}
+
+Set Credentials
+    [Arguments] 	${username} 	${password}
+  	#Input Text  LOGIN_user  ${username}
+  	Input Text  xpath=//*[@id="LOGIN_user"]  ${username}
+  	Input Password  LOGIN_pwd    ${password}

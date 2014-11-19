@@ -1,0 +1,47 @@
+*** Settings ***
+Library 	test1.py
+Resource 	keywords/my_keywords.txt
+Resource 	resources/env_config.txt
+
+Suite Setup		LOG  suite setup
+Suite Teardown	my suite teardown
+
+Test Setup 	my test setup
+Test Teardown 		LOG    after each test case
+
+*** Testcases ***
+First test
+	[tags]	math
+	${result}= 	multiply by two 	4.1
+	LOG 	${app install dir}
+
+
+Second test
+	[tags]	compare 	nocritical
+	[setup]		LOG    	speciat setup for Second test case
+	numbers should be equal 	14 	14
+	should not be equal 	4 	6
+
+Third test
+	simple keyword
+	greet	Robot Framework
+	greet	World
+
+Fourth test
+	[Documentation] 	*Documentation in bold*, and _italic_
+	... 	and here is a link: http://robotframework.org
+	No operation
+
+Fifth test
+	[Documentation] 	Documentation example
+	LOG 	${CURDIR}
+	LOG 	${TEST NAME}
+	LOG 	${TEST DOCUMENTATION}
+
+Sixth test
+	[tags] 	login
+	[Timeout]  30 seconds
+	open login page 	${URL} 	${BROWSER}
+	title should start with 	ScienceLogic
+	set credentials 	${USERNAME} 	${PASSWORD}
+	close browser

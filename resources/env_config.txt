@@ -1,0 +1,6 @@
+*** variables ***
+${app install dir}	/home/user/app
+${URL} 	http://54.164.23.57/
+${BROWSER} 	firefox
+${USERNAME} 	mguzman
+${PASSWORD} 	Control123
