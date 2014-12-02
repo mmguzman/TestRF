@@ -19,7 +19,7 @@ First test
 Second test
 	[tags]	compare 	nocritical
 	[setup]		LOG    	speciat setup for Second test case
-	numbers should be equal 	14 	14
+	numbers should be equal 	15 	14
 	should not be equal 	4 	6
 
 Third test
